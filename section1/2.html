@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+			
+            function solution(a, b, c){
+				let max = [a, b, c];
+				max.sort(function(a, b) {
+					if (a > b) return 1;
+					if (a === b) return 0;
+					if (a < b) return -1;
+				});
+				if (c > a + b) return ("YES")
+				else	return ("NO")
+            }
+            console.log(solution(13, 33, 17));
+        </script>
+    </body>
+</html>
