@@ -8,14 +8,11 @@
     <body>
         <script>
             function solution(a, b, c){
-                let min;
-				if (a <= b && a <= c)
-                    let = a;
-                else if (b <= a && b <= c)
-                    let = b;
-                else
-                    let = c;
-                return (let);
+                let answer;
+                if (a < b) answer = a;
+                else    answer = b;
+                if (c < answer) answer = c;
+                return (answer);
             }
             console.log(solution(6, 5, 11));
         </script>
