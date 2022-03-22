@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+				let addall = 0; gap = 0;
+				// addall = arr.reduce((a , b) => a + b, 0)가 더 간편
+				for (let x of arr)
+					addall += x;
+				gap = addall - 100;
+				for (let i = 0; i < arr.length - 1; i++) {
+					for (let j = i + 1; j < arr.length; j++) {
+						if (arr[i] + arr[j] == gap) {
+							// j(상대적으로 i 뒤의 값)를 먼저 없애게 만들면 -1을 할 필요가 없음
+							arr.splice(i, 1);
+							arr.splice(j - 1, 1);
+							return (arr);
+						}
+					}
+				}
+            }
+            
+            let arr=[20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+<!-- ANSER:
+
+function solution(arr){
+	let answer=arr;
+	let sum=answer.reduce((a, b)=>a+b, 0);
+	for(let i=0; i<8; i++){
+		for(let j=i+1; j<9; j++){
+			if((sum-(answer[i]+answer[j]))==100){
+				answer.splice(j, 1);
+				answer.splice(i, 1);
+			}
+		}
+	}
+	return answer;
+} -->

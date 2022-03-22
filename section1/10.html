@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+				let cnt = 0;
+				for (let x of s)
+				// x === t 여야함
+					if (x == t)	cnt++;
+				return (cnt);
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html>
+
+<!-- ANSER:
+	split을 이용해 문자열을 찾으면 훨씬 간단! 리턴값 -1만 하면 됨
+
+function solution(s, t){
+	let answer=s.split(t).length;
+	return answer-1;
+} -->
