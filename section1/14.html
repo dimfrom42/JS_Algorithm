@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+				let maxlen = "";
+				for (let x of s) {
+					if (x.length >= maxlen.length)
+						maxlen = x;
+				}
+				return (maxlen);
+            }
+            let str=["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
+
+<!-- ANSWER:
+	Number.MIN_SAFR_INTEGER 은 안전한 최소 정수값을 나타냄 
+	-(2^53 - 1) = -9007199254740991
+
+	****??질문1 : 왜 굳이 0이 아닌 최소값으로 초기화를 할까???****
+
+function solution(s){  
+	let answer="", max=Number.MIN_SAFE_INTEGER;
+	for(let x of s){
+		if(x.length>max){
+			max=x.length;
+			answer=x;
+		}
+	}
+	return answer;
+} -->
