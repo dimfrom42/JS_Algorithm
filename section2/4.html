@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let seq = 1;
+                let score = 0;
+                for (var x of arr) {
+                    if (x === 0)    seq = 1;
+                    else {
+                        score += seq;
+                        seq++;
+                    }
+                }
+                return (score);
+            }
+
+            let arr=[1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+<!-- ANSER:
+    초기화를 0으로 하는게 훨씬 깔끔해보임
+
+function solution(arr){         
+    let answer=0, cnt=0;
+    for(let x of arr){
+        if(x===1){
+            cnt++;
+            answer+=cnt;
+        }
+        else cnt=0;
+    }
+       
+    return answer;
+} -->

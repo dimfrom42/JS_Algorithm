@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+				let num = 2; numarr = []; ret = [];
+				let sortarr = arr.slice();
+				sortarr.sort((a, b) => {
+					if (a > b) return (-1);
+					else if (a === b) return (0);
+					else return (1);
+				});
+				numarr[0] = 1;
+				for (let i = 1; i < sortarr.length; i++) {
+					if (sortarr[i] === sortarr[i - 1])
+						numarr.push(ret[i - 1]);
+					else numarr.push(num++);
+				}
+				for (let i = 0; i < arr.length; i++) {
+					for (let j = 0; j < arr.length; j++) {
+						if (arr[i] === sortarr[j]) {
+							ret.push(numarr[j]);
+						}
+					}
+				}
+				return (ret);
+            }
+
+            let arr=[87, 89, 92, 100, 76];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
+
+<!-- ANSER:
+	* 안되는 코드를 풀어나가려니 코드가 지저분하고 효율이 떨어짐
+	* 등수를 매기는 문제는 초기화를 1로 한 뒤 자신보다 높은 원소를 발견시 +1씩 해주면 편함
+	* Array.from(arrayLike[, mapFn[, thisArg]])
+	= Array.from(obj).map(mapFn, thisArg)
+	아래의 {length:n}은 유사배열 객체로 배열처럼 보이나 배열이 아님
+	Array.from은 유사배열을 배열로 바꿔주는 역할을 함
+
+function solution(arr){  
+	let n=arr.length;
+	let answer=Array.from({length:n}, ()=>1);
+	for(let i=0; i<n; i++){
+		for(let j=0; j<n; j++){
+			if(arr[j]>arr[i]) answer[i]++;
+		}
+	}             
+	return answer;
+} -->

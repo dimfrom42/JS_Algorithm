@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b){
+				let ret = "";
+				for (let i = 0; i < a.length; i++) {
+					if (a[i] > b[i]) {
+						if (b[i] === 1 && a[i] === 3)
+							ret += "B ";
+						else ret += "A ";
+					} else if (b[i] > a[i]) {
+						if (a[i] === 1 && b[i] === 3)
+							ret += "A ";
+						else ret += "B ";
+					} else ret += "D ";
+				}
+				return (ret);
+            }
+
+            let a=[2, 3, 3, 1, 3];
+            let b=[1, 1, 2, 2, 3];
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>
+
+<!-- ANSER:
+	출력값에 대한 오해가 있었음,,내 코드 수정함
+	답이 A, B, D로 세가지이며 한 게임에서 총 경우의 수는 9가지,
+	A가 이길 확률은 1/3이며 3개의 경우밖에 안되기 때문에 확률을 다 열거하는게
+	더 깔끔한 편. B가 이기는건 else로, 비길 확률은 조건이 같을때 한줄로 가능하기 때문
+
+function solution(a, b){         
+	let answer="";
+	for(let i=0; i<a.length; i++){
+		if(a[i]===b[i]) answer+="D ";
+		else if(a[i]===1 && b[i]===3) answer+="A ";
+		else if(a[i]===2 && b[i]===1) answer+="A ";
+		else if(a[i]===3 && b[i]===2) answer+="A ";
+		else answer+="B ";
+	}
+	
+	return answer;
+} -->
