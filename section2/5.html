@@ -7,6 +7,7 @@
         <script>
             function solution(arr){
 				let num = 2; numarr = []; ret = [];
+				// 그냥 arr.sort로 이용시 원래 arr 배열에 영향을 끼치기 때문에 값을 복사해서 사용
 				let sortarr = arr.slice();
 				sortarr.sort((a, b) => {
 					if (a > b) return (-1);
