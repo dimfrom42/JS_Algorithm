@@ -6,6 +6,22 @@
     <body>
         <script>
             function solution(s, t){
+                let arr = []; i = 0; min = s.length;
+                while (true) {
+                    let idx = s.indexOf('e', i);
+                    if (idx != -1) {
+                        arr.push(idx);
+                        i = idx + 1;
+                    } else break;
+                }
+                let ret = [];
+                for (let x in s) {
+                    for (let j = 0; j < arr.length; j++) {
+                        min = Math.abs(Math.min(arr[j] - x, min));
+                    }
+                    ret.push(min);
+                }
+                return (ret);
             }
             
             let str="teachermode";
@@ -13,3 +29,31 @@
         </script>
     </body>
 </html>
+
+<!-- ANSWER:
+    * 현재 문자열의 앞 또는 뒤에 있는 특정 문자열로부터의 최소 거리이기 때문에
+    앞에서 한번, 뒤에서 한번 훑어주면 됨
+
+function solution(s, t){
+    let answer=[];
+    let p=1000;
+    for(let x of s){
+        if(x===t){
+            p=0;
+            answer.push(p);
+        }
+        else{
+            p++;
+            answer.push(p);
+        }
+    }
+    p=1000;
+    for(let i=s.length-1; i>=0; i--){
+        if(s[i]===t) p=0;
+        else{
+            p++;
+            answer[i]=Math.min(answer[i], p);
+        }
+    }
+    return answer;
+} -->

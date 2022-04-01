@@ -6,6 +6,12 @@
     <body>
         <script>
             function solution(str){
+                let arr = str.match(/[0-9]/g);
+                let i = 0;
+                while (arr[i] === "0") {
+                    arr.shift();
+                }
+                return (arr.join(""));
             }
             
             let str="g0en2T0s8eSoft";
@@ -13,3 +19,16 @@
         </script>
     </body>
 </html>
+
+<!-- ANSWER:
+    * isNaN은 숫자가 아닐 경우 true를 리턴하기 때문에 false가 리턴됐을 경우(숫자일 경우) 추가
+    (공백이나 빈문자열의 경우 false이나 이걸 문자로 취급 안한듯)
+    * 팁*** 숫자 앞에 있는 0을 제외하고 싶은 경우 parseInt를 쓰면 간편!
+
+function solution(str){
+    let answer="";
+    for(let x of str){
+        if(!isNaN(x)) answer+=x;
+    }  
+    return parseInt(answer);
+} -->
