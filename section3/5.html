@@ -6,26 +6,40 @@
     <body>
         <script>
             function solution(s){
-                let cur = s[0]; cnt = 1;
-                let arr = [];
-                for (let i = 1; i < s.length; i++) {
-                    if (s[i] == cur)
-                        cnt++;
-                    else {
-                        arr.push(cur);
-                        if (cnt != 1)
-                            arr.push(cnt);
-                        cur = s[i];
-                        cnt = 1;
-                    }
-                    if (i == s.length - 1) {
-                        arr.push(cur);
-                        if (cnt != 1)
-                            arr.push(cnt);
+                let answer="";
+                let cnt=1;
+                s=s+" ";
+                for(let i=0; i<s.length-1; i++){
+                    if(s[i]===s[i+1]) cnt++;
+                    else{
+                        answer+=s[i];
+                        if(cnt>1) answer+=String(cnt);
+                        cnt=1;
                     }
                 }
-                return (arr.join(""));
+                return answer;
             }
+            // function solution(s){
+            //     let cur = s[0]; cnt = 1;
+            //     let arr = [];
+            //     for (let i = 1; i < s.length; i++) {
+            //         if (s[i] == cur)
+            //             cnt++;
+            //         else {
+            //             arr.push(cur);
+            //             if (cnt != 1)
+            //                 arr.push(cnt);
+            //             cur = s[i];
+            //             cnt = 1;
+            //         }
+            //         if (i == s.length - 1) {
+            //             arr.push(cur);
+            //             if (cnt != 1)
+            //                 arr.push(cnt);
+            //         }
+            //     }
+            //     return (arr.join(""));
+            // }
             
             let str="KKHSSSSSSSE";
             console.log(solution(str));
